@@ -1,0 +1,117 @@
+{% load static  %}
+<header class="header">
+  <nav class="navbar navbar-expand-lg header-nav nav-transparent">
+    <div class="navbar-header">
+      <a id="mobile_btn" href="javascript:void(0);">	<span class="bar-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+        </span>
+      </a>
+      <a href="index.html" class="navbar-brand logo">
+  <img src="{% static 'assets/img/lll.png' %}" class="img-fluid" alt="Logo">
+      </a>
+    </div>
+    <div class="main-menu-wrapper" style="color:black;">
+      <div class="menu-header">
+        <a href="index.html" class="menu-logo">
+          <img src="{% static 'assets/img/lll.png' %}" class="img-fluid" alt="Logo">
+        </a>
+        <a id="menu_close" class="menu-close" href="javascript:void(0);">	<i class="fas fa-times"></i>
+        </a>
+      </div>
+      <ul class="main-nav white-font">
+        <li class="has-submenu">	<a href="{% url 'employment:home' %}">Home </a>
+
+        </li>
+
+
+        <li class="has-submenu">	<a href="#">Formations <i class="fas fa-chevron-down"></i></a>
+          <ul class="submenu">
+            <li class="has-submenu">
+							<a href="doctor-blog.html">Categorie</a>
+							<ul class="submenu">
+								<li><a href="doctor-blog.html">cat1</a></li>
+								<li><a href="blog-details.html">cat2</a></li>
+								<li><a href="doctor-add-blog.html">cat3</a></li>
+							</ul>
+
+        		</li>
+            <li class="has-submenu">
+              <a href="doctor-blog.html">Domaine</a>
+              <ul class="submenu">
+                <li><a href="doctor-blog.html">Domaine1</a></li>
+                <li><a href="blog-details.html">Domaine2</a></li>
+                <li><a href="doctor-add-blog.html">Domaine3</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+
+
+
+
+        <li class="has-submenu">	<a href="#">Tests <i class="fas fa-chevron-down"></i></a>
+          <ul class="submenu">
+            <li class="has-submenu">
+              <a href="doctor-blog.html">Domaine</a>
+              <ul class="submenu">
+                {% for d in dom %}
+                <li><a href="{% url 'employment:test' d.id %}">{{d.nom_domaine}}</a></li>
+                {% endfor %}
+              </ul>
+            </li>
+          </ul>
+        </li>
+
+
+
+
+        <li class="has-submenu">	<a href="#">Blog <i class="fas fa-chevron-down"></i></a>
+          <ul class="submenu">
+            <li><a href="blog-list.html">Blog List</a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="login-link">	<a href="login.html">Login / Signup</a>
+        </li>
+      </ul>
+    </div>
+    <ul class="nav header-navbar-rht">
+      {% if user.is_authenticated %}
+              <li class="nav-item dropdown has-arrow logged-item">
+                <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                  <span class="user-img">
+                    <img class="rounded-circle" src="{% static 'assets/img/doctors/doctor-thumb-02.jpg' %}" width="31" alt="Darren Elder">
+                  </span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                  <div class="user-header">
+                    <div class="avatar avatar-sm">
+                      <img src="{% static 'assets/img/doctors/doctor-thumb-02.jpg' %}" alt="User Image" class="avatar-img rounded-circle">
+                    </div>
+                    <div class="user-text">
+                      <h6>{{user}}</h6>
+                      <p class="text-muted mb-0"></p>
+                    </div>
+                  </div>
+                  <a class="dropdown-item" href="doctor-dashboard.html">Dashboard</a>
+                  <a class="dropdown-item" href="doctor-profile-settings.html">Profile Settings</a>
+                  <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+                </div>
+              </li>
+      {% else %}
+
+  <li class="nav-item">	<a class="nav-link header-login" href="{% url 'login'  %}" style="border-color:white;">login / Signup </a>
+    </li>
+
+              {% endif %}
+    </ul>
+  </nav>
+  <div class="carousel-caption d-none d-md-block  " style="margin-right:13rem;">
+          <span style="color:white;">We Provide Solution</span>
+          <h2 style="color:white;">To stressless Life</h2>
+          <p style="color:white;">People who are more perfectionist are most likely to be depressed,<br>Because they stress themselves out so much.</p>
+        </div>
+</header>

@@ -1,0 +1,51 @@
+{% extends 'otherbase.html'  %}
+{% load static %}
+{%load crispy_forms_tags %}
+{%  block content %}
+
+
+<!-- Page Content -->
+<div class="content">
+  <div class="container-fluid">
+
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+
+        <!-- Register Content -->
+        <div class="account-content">
+          <div class="row align-items-center justify-content-center">
+
+            <div class="col-md-12 col-lg-6 login-right">
+              <div class="login-header">
+                <h1 align="center">Sign Up </h1>
+            {% include 'includes/messages.html'%}
+              </div>
+
+              <!-- Register Form -->
+              <form method="post">{% csrf_token %}
+                  {{form|crispy}}
+                <div class="text-right">
+                  <a class="forgot-link" href="login.html">Already have an account?</a>
+                </div>
+                <button class="btn btn-outline-secondary btn-block btn-lg login-btn" type="submit">Register</button>
+                <div class="login-or">
+                  <span class="or-line"></span>
+                  <span class="span-or">or</span>
+                </div>
+              </form>
+              <!-- /Register Form -->
+
+            </div>
+          </div>
+        </div>
+        <!-- /Register Content -->
+
+      </div>
+    </div>
+
+  </div>
+
+</div>
+<!-- /Page Content -->
+
+{%  endblock content %}

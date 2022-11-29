@@ -1,0 +1,40 @@
+{% extends 'otherbase.html'  %}
+{% load static %}
+{%load crispy_forms_tags %}
+{%  block content %}
+
+<section class="section section-category">
+  <div class="container">
+    <div class="section-header text-center">
+      <h2 style="color:black;">Browse by Domaine : .... </h2>
+      <p class="sub-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </div>
+
+    <div class="row">
+      {% for t in test %}
+      {% for a in assoc %}
+
+      {% if t.id == a.test.id %}
+
+      <div class="col-lg-3">
+        <div class="category-box">
+          <a href="{% url 'employment:affiche_test' t.id %}">
+          <div class="category-image">
+            <img src="{% static 'assets/img/examen.png' %}" alt="" style="color:black;">
+          </div>
+            </a>
+          <div class="category-content">
+            <h4>{{t.titre}}</h4>
+            <span>22 Part</span>
+          </div>
+        </div>
+      </div>
+
+      {% endif %}
+      {% endfor %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{%  endblock content %}

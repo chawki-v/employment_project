@@ -1,0 +1,43 @@
+{% extends 'otherbase.html'  %}
+{% load static %}
+{%  block content %}
+
+		<div class="main-wrapper">
+<div class="content">
+  <div class="container-fluid">
+
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+
+        <!-- Login Tab Content -->
+        <div class="account-content" >
+          <div class="row align-items-center justify-content-center" >
+
+            <div class="col-md-12 col-lg-6 login-right " >
+              <div class="login-header" align="center" >
+                <h1>Result <span>Of the test </span></h1>
+
+              </div>
+                <span style="font-size:300%;color:green;margin-left:43%;">{{sum}}/{{avg}}</span>
+            </div>
+          </div>
+        </div>
+        <!-- /Login Tab Content -->
+
+      </div>
+    </div>
+
+  </div>
+
+</div>
+<section class="section section-doctor">
+  <div class="container-fluid">
+    <div class="section-header text-center">
+      <h2>Recommandation For You</h2>
+      <p class="sub-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </div>
+
+  </div>
+</section>
+
+{%  endblock content %}
